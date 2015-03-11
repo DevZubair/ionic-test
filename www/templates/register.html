@@ -1,0 +1,56 @@
+<ion-view view-title="Register">
+  <ion-content>
+    
+     <ion-nav-bar class="bar-royal">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+      </ion-nav-bar>
+    
+    
+    <div class="card">
+      <div class="item item-divider">
+        Register New Account
+      </div>
+      <div class="item item-text-wrap">
+        <form>
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">First Name</span>
+              <input type="text" placeholder="First Name" ng-model="$parent.firstName">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Last Name</span>
+              <input type="text" placeholder="Last Name"  ng-model="$parent.lastName">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Email</span>
+              <input type="text" placeholder="Email"  ng-model="$parent.userEmail">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Username</span>
+              <input type="text" placeholder="Choose a new username"  ng-model="$parent.userName">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Password</span>
+              <input type="text" placeholder="Choose a new password"  ng-model="$parent.userPassword">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Mentor</span>
+              <input type="text" placeholder="Your Mentor"  ng-model="$parent.userMentor">
+            </label>
+            <!-- will let them write about me in the profile page
+            <label class="item">
+              <label class="item item-input">
+              <span class="input-label">About Me</span>
+              <input type="text" placeholder="Write about yourself..."  ng-model="$parent.userAboutme">
+            </label>
+            -->
+            <label class="item">
+              <button class="button button-block icon-left ion-edit button-balanced" type="submit" ng-click="addMember()">Register Me</button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,4 +1,31 @@
 /* Empty. Add your own CSS if you like */
-ion-view {
-	background-color: floralwhite;
+ion-content {
+	background-color: #E2E5FC;
+}
+
+
+h1, h2, h3{
+    font-family: 'Lobster', cursive;
+}
+
+.intro{
+    text-align:center;
+    padding:10px;
+    text-decoration:bold;
+}
+
+.gridBox{
+    padding:5px;
+    background-color:white;
+    border:1px solid blue;
+}
+
+.button-Steps{
+    border-radius:5px
+   
+}
+
+.wide-as-needed {
+  overflow: scroll;
+  white-space: nowrap;
 }

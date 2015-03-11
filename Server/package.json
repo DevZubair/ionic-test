@@ -1,0 +1,31 @@
+{
+    "name"         : "ionic-fromgithub",
+    "version"      : "0.0.0",
+
+    "main"         : "Server.js",
+    "author"       : "Danh",
+    "dependencies" : {
+        "express"    : "~4.7.2",
+        "mongoose"   : "~3.6.2",
+        "morgan"     : "~1.2.2",
+        "body-parser": "~1.5.2",
+        "method-override": "~2.1.2"
+    }
+}
+
+
+/* +++++++++++++++++ Zubair Comment 5th March, 2015  +++++++++++++++++++++++++
+
+ Above you can see is that I have added some dependencies, basically I would be needing express framework and mongoose
+ ahead. Express is used for simplifying Node.js and mongoose is used for creating collections and schemas in mongoDB.
+ 
+ How to install these dependencies:
+ 1) Create a file package.json
+ 2) Add a name of your project and version (optional).
+ 3) Create dependencies list (Could be add later if forgot any)
+ 4) Open New terminal
+ 5) $ npm install
+ 6) It will download and will add all the files in a folder named node_modules.
+ 
+*/
+

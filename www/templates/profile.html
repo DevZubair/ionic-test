@@ -1,0 +1,76 @@
+<ion-view view-title="My Profile">
+  <ion-content>
+
+<!-- added nav bar back to see if I can access settings tab again-->
+    <!--  <ion-nav-bar class="bar-royal">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+      </ion-nav-bar>-->
+      
+      <!-- +++++++++++++++++++++++++++ Zubair Comment 9th March, 2015 +++++++++++++++++++++++++++
+    
+    Please remember that you can not use two nav-bars in a single view. Above nav-bar code you have used is
+    not a valid code, this is the reason that page was not loading correctly. nav-bar is already coming from members.html
+    page so all the child states are inheriting the nav-bar.
+    
+    
+    
+  -->  
+    
+      <div class="card">
+      
+      <div class="item item-divider">
+        Update Your Profile Below:
+      </div>
+      
+      <div class="item item-text-wrap">
+        <form>
+      <div class="row padding">
+      <div class="col col-25" style="height:150px" ></div>
+      <div class="col gridBox col-50" style="height:150px" >Picture</div>
+    </div>
+    
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">First Name</span>
+              <input type="text" placeholder="firstName" ng-model="currentUserData.Firstname">
+            </label>
+            
+            <label class="item item-input">
+              <span class="input-label">Last Name</span>
+              <input type="text" placeholder="lastName"  ng-model="currentUserData.Lastname">
+            </label>
+            
+            <label class="item item-input">
+              <span class="input-label">Email</span>
+              <input type="text" placeholder="userEmail"  ng-model="currentUserData.Email">
+            </label>
+            
+            <label class="item item-input">
+              <span class="input-label">Username</span>
+              <input type="text" placeholder="userName"  ng-model="$parent.userNewName">
+            </label>
+            
+              <label class="item item-input">
+              <span class="input-label">Old Password</span>
+              <input type="password" placeholder="userPassword"  ng-model="$parent.userOldPassword">
+            </label>
+            
+            <label class="item item-input">
+              <span class="input-label">New Password</span>
+              <input type="password" placeholder="userPassword"  ng-model="$parent.userNewPassword">
+            </label>
+            
+            <label class="item item-input">
+              
+              <span class="input-label">About Me</span>
+              <input type="text" placeholder="userAboutme"  ng-model="currentUserData.Aboutme">
+            </label>
+            
+            <label class="item">
+              <button class="button button-block icon-left ion-edit button-balanced" type="submit" ng-click="updateUserInfo()">Update Now</button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>

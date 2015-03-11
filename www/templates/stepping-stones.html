@@ -1,0 +1,101 @@
+<ion-view view-title="Stepping Stones:">
+  <ion-content>
+  
+    <div class="intro"><h3>"The journey of a thousand miles begin with the first step."</h3></div>
+    
+
+       <ion-scroll direction="x" class="wide-as-needed">
+       
+       
+         <div ng-repeat="steps in stepsList" style="display:inline">
+     
+      <button class="button button-assertive">{{steps}}</button>
+        
+        </div>
+        
+        
+     </ion-scroll>
+    
+   
+   <!-- ++++++++++++++++++++++++++++++ Zubair 10th March, 2015 +++++++++++++++++++++++++++++++
+   
+   We were making a bug before about giving the width to the ion-scroll, actually it needs to have a width which      will expand on need. Please see class "wide-as-needed" in style.css
+   I have copied this class from ionic blogs, someone has posted it. It works fine now.
+   
+   
+   -->
+   
+   
+
+
+
+    <!-- Here is me doing it manually.  Also here, I created a css entryfor button-Steps in style.css but is there a way to also put the "button" and "button-assertive" inside this custom "button-Steps" so that here we only have to put class="button-Steps" and still has the styles of button and button-assertive?  Is it even wise to do that or should we just leave it alone here?-->
+    
+    
+    <!-- ++++++++++++++++++++++++++ Zubair Comment 10th March, 2015 ++++++++++++++++++++++++++++++++++
+    
+    Answer for custom CSS:
+    It is good if we make seperate classes for our button, it doesn't matter if we call 3 or 4 classes on a single
+    button or even more. To merge all the css in one class is possible but not a good practice I must say.
+    
+    
+    -->
+    
+    
+  <!--  <button class="button button-assertive button-Steps">Step 1</button>
+    <button class="button button-assertive button-Steps">Step 2</button>
+    <button class="button button-assertive button-Steps">Step 3</button>
+    <button class="button button-assertive button-Steps">Step 4</button>
+    <button class="button button-assertive button-Steps">Step 5</button>
+    <button class="button button-assertive button-Steps">Step 6</button>
+    <button class="button button-assertive button-Steps">Step 7</button>
+    <button class="button button-assertive button-Steps">Step 8</button>
+    <button class="button button-assertive button-Steps">Step 9</button>
+    <button class="button button-assertive button-Steps">Step 10</button>
+    <button class="button button-assertive button-Steps">Step 11</button>
+    <button class="button button-assertive button-Steps">Step 12</button>
+    <button class="button button-assertive button-Steps">Step 13</button>
+    <button class="button button-assertive button-Steps">Step 14</button>
+    <button class="button button-assertive button-Steps">Step 15</button>
+    <button class="button button-assertive button-Steps">Step 16</button>
+    <button class="button button-assertive button-Steps">Step 17</button>
+    <button class="button button-assertive button-Steps">Step 18</button>
+    <button class="button button-assertive button-Steps">Step 19</button>
+    <button class="button button-assertive button-Steps">Step 20</button>-->
+    
+    
+  
+ 
+ 
+ 
+ 
+ <div class="padding">
+         <div class="item item-divider royal" style="background-color:royal">
+          <h2>Welcome!</h2>
+        </div>
+        
+        <div class="item item-text-wrap">
+          <p>Hi "firstName".  Welcome to the app.  Let's first get you settled in, then we'll give you a quick tour.<br><br> You were invited by "Mentor1", but you also have 3 other mentors who can also help you should you get stuck.<br><br>  This app was designed to help you use your mobile phone to build up passive income streams.<BR><BR>Just follow this Stepping Stones guide and you will be guided through everything.</p>
+        </div>
+        
+        <div class="item item-divider" style="background-color:floralwhite">
+          <h2>Step #1 Summary: Use this Stepping Stones to learn about how the app works</h2>
+        </div>
+        
+        <ul class="list">
+          <li class="item item-checkbox checkbox-balanced">
+           <label class="checkbox">
+             <input type="checkbox">
+           </label>
+             Check here when done with this step
+          </li>
+        </ul>
+       
+    
+    <div padding>
+    <button class="button button-balanced icon-right ion-chevron-right" style="float:right">Go To The Next Step</button>
+    </div>
+    </div>
+ 
+  </ion-content>
+</ion-view>
