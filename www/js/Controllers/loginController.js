@@ -1,5 +1,5 @@
 
-myMod.controller('LoginCtrl', function($scope, $http,$state,$rootScope,$ionicLoading,$ionicPopup) {
+myMod.controller('LoginCtrl', function($scope, $http,$state,$rootScope,$ionicLoading,$ionicPopup,ionicLoader) {
  
  
  localStorage.clear();        /*Used this line to clear the localStorage all data from browser
@@ -7,17 +7,7 @@ myMod.controller('LoginCtrl', function($scope, $http,$state,$rootScope,$ionicLoa
  
  
  
- var show = function() {
-        $ionicLoading.show({
-            template: '<div class="spinner">' +
-                '<div class="dot1"></div>' +
-                '<div class="dot2"></div>' +
-                '</div>'
-        });
-    };
-    var hide = function(){
-        $ionicLoading.hide();
-    };
+
  
  
  /* ++++++++++++++++++++++ Zubair Comment 10th March, 2015 +++++++++++++++++++++++++++++++
@@ -46,7 +36,15 @@ $scope.loginData={
 
 $scope.doLogin=function(){
   
-  show();
+  ionicLoader.show($ionicLoading);
+  
+  /* +++++++++++++++++++++++++++++++++ Zubair Comment 11th March, 2015 +++++++++++++++++++++++++++++++++++
+  
+  Please see above that we have called our factory function show() passing our $ionicLoading parameter. So now we don't had to define any function above,
+  it is already defined in factory once so we are now using it. Same will repeat with hide() as well below.
+  And please don't forget to see the first line of controller where I have passed ionicLoader as a parameter which is called as injection of a factory.
+  
+  */
   
     
   $http.post('https://ionic-fromgithub-danh1975.c9.io/api/loginMember',{
@@ -57,7 +55,7 @@ $scope.doLogin=function(){
       
       if(data=="")
       {
-        hide();
+        ionicLoader.hide($ionicLoading);
           //alert('This Username is not available.  Please choose another one.');
           
          
@@ -80,7 +78,7 @@ $scope.doLogin=function(){
               localStorage.setItem('currentUser',$scope.loginData.username);       //$rootScope is more like a global variable
               localStorage.setItem('currentUserId',data._id);  
               console.log('login Success!');
-              hide();
+              ionicLoader.hide($ionicLoading);
               //alert("Welcome Back! Let's Go!");
               
                var alertPopup = $ionicPopup.alert({
@@ -104,7 +102,7 @@ $scope.doLogin=function(){
               $state.go('members.mission');
           }
           else{
-            hide();
+            ionicLoader.hide($ionicLoading);
             //  alert('This Password is not valid.');
             
             
@@ -123,7 +121,7 @@ $scope.doLogin=function(){
       
   }).error(function(data){
     
-    hide();
+    ionicLoader.hide($ionicLoading);
       
     //  alert('Username is not valid!');
       

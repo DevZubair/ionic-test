@@ -1,11 +1,12 @@
-myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicPopup) {
+myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicPopup,$ionicLoading,ionicLoader) {
    
  
- $scope.userNewPassword='';
- $scope.userNewName='';
- $scope.userOldPassword='';
+  $scope.userNewPassword='';
+  $scope.userNewName='';
+  $scope.userOldPassword='';
  
- 
+  ionicLoader.show($ionicLoading);
+  
    $http.post('https://ionic-fromgithub-danh1975.c9.io/api/profileMember',{
       
       id: localStorage.getItem('currentUserId')
@@ -15,10 +16,12 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
       $scope.currentUserData=data;
       $scope.userNewName=$scope.currentUserData.Username;   
       //Used this line to show textfield already filled with username
+      ionicLoader.hide($ionicLoading);
 
   }).error(function(data){
 
       console.log('Data Not found!');
+      ionicLoader.hide($ionicLoading);
   });
    
    
@@ -26,6 +29,8 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
       
       
       $scope.updateUserInfo=function(){
+          
+           ionicLoader.show($ionicLoading);
         
         /*  ++++++++++++++++++++++ Zubair Comment 7th March, 2015 +++++++++++++++++++++++++++
         
@@ -91,7 +96,7 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
              
          }).success(function(data){
              localStorage.setItem('currentUser',$scope.currentUserData._id);
-            // alert('Data Updated!');
+             ionicLoader.hide($ionicLoading);
             
              var alertPopup = $ionicPopup.alert({
               title: 'Danh App Alert!',
@@ -106,6 +111,7 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
          }).error(function(data){
              
              console.log('Data not updated' + data);
+              ionicLoader.hide($ionicLoading);
              
              
          });
@@ -113,7 +119,7 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
             }
             else{
                 
-              //  alert('To update, you must also enter your old Password');
+               ionicLoader.hide($ionicLoading);
               
               var alertPopup = $ionicPopup.alert({
               title: 'Danh App Alert!',
@@ -189,7 +195,7 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
              if(data)
              {
                  //alert('Username is not available, please select another name');
-                 
+                  ionicLoader.hide($ionicLoading);
                    var alertPopup = $ionicPopup.alert({
               title: 'Danh App Alert!',
               template: "Username is not available, please select another name!"
@@ -217,7 +223,7 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
              
          }).success(function(data){
              
-            // alert('Data Updated!');
+            ionicLoader.hide($ionicLoading);
             
             
                    var alertPopup = $ionicPopup.alert({
@@ -232,7 +238,7 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
          }).error(function(data){
              
              console.log('Data not updated' + data);
-             
+              ionicLoader.hide($ionicLoading);
              
          });
                  
@@ -242,7 +248,7 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
              else{
                 
              //   alert('For data update, you must type old Password');
-             
+              ionicLoader.hide($ionicLoading);
                var alertPopup = $ionicPopup.alert({
               title: 'Danh App Alert!',
               template: "For data update, you must type old Password!"
@@ -256,6 +262,7 @@ myMod.controller('ProfileCtrl', function($scope, $http,$state,$rootScope,$ionicP
              
          }).error(function(error) {
              
+              ionicLoader.hide($ionicLoading);
              console.log('error' + error);
              
          });

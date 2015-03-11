@@ -1,4 +1,4 @@
-myMod.controller('RegisterCtrl',function($scope,$http,$ionicLoading,$ionicPopup,$state){
+myMod.controller('RegisterCtrl',function($scope,$http,$ionicLoading,$ionicPopup,$state,ionicLoader){
   
  
   $scope.firstName='';
@@ -10,21 +10,10 @@ myMod.controller('RegisterCtrl',function($scope,$http,$ionicLoading,$ionicPopup,
   $scope.userMentor='';
   
   
-   var show = function() {
-        $ionicLoading.show({
-            template: '<div class="spinner">' +
-                '<div class="dot1"></div>' +
-                '<div class="dot2"></div>' +
-                '</div>'
-        });
-    };
-    var hide = function(){
-        $ionicLoading.hide();
-    };
   
   $scope.addMember=function(){
       
-      show();
+      ionicLoader.show($ionicLoading);
     
     /* +++++++++++++ Zubair Comment 5th March, 2015
     
@@ -57,7 +46,7 @@ myMod.controller('RegisterCtrl',function($scope,$http,$ionicLoading,$ionicPopup,
     }).success(function(data){
       
       console.log(data);
-      hide();
+      ionicLoader.hide($ionicLoading);
      // alert('Success' + data);    //This will be called if data is successfully sent to Mongo Lab
       
         var alertPopup = $ionicPopup.alert({
@@ -74,7 +63,7 @@ myMod.controller('RegisterCtrl',function($scope,$http,$ionicLoading,$ionicPopup,
     }).error(function(data){
       
        console.log(data);
-       hide();
+       ionicLoader.hide($ionicLoading);
        //alert('Error' + data);     //This will be called if Mongo Lab did not get the data correctly
        
        
